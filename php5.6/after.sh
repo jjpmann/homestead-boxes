@@ -22,37 +22,37 @@ else
 
     # update
     apt-get clean
-    apt-add-repository --yes ppa:brightbox/ruby-ng
-    apt-get update
+    # apt-add-repository --yes ppa:brightbox/ruby-ng
+    # apt-get update
 
     # for db imports
-    apt-get install unzip
+    # apt-get install unzip
 
     ## intall ruby2.3
-    apt-get install --yes ruby2.3 ruby2.3-dev
+    # apt-get install --yes ruby2.3 ruby2.3-dev
 
     # install Ruby and mailcatcher
-    gem install mailcatcher
+    # gem install mailcatcher
 
-    echo 'description "Mailcatcher"
+#     echo 'description "Mailcatcher"
 
-start on runlevel [2345]
-stop on runlevel [!2345]
+# start on runlevel [2345]
+# stop on runlevel [!2345]
 
-respawn
+# respawn
 
-exec /usr/bin/env $(which mailcatcher) --foreground --http-ip=0.0.0.0' > /etc/init/mailcatcher.conf
-    service mailcatcher start
+# exec /usr/bin/env $(which mailcatcher) --foreground --http-ip=0.0.0.0' > /etc/init/mailcatcher.conf
+#     service mailcatcher start
 
-    # Fix EE group by
-    printf '%s\n%s\n%s\n' '[mysqld]' '# Fix EE issues with group by' 'sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' > /etc/mysql/conf.d/sql_mode.cnf
-    service mysql restart 
+#     # Fix EE group by
+#     printf '%s\n%s\n%s\n' '[mysqld]' '# Fix EE issues with group by' 'sql_mode = STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' > /etc/mysql/conf.d/sql_mode.cnf
+#     service mysql restart 
 
     ## Install phpMyAdmin
-    composer -g config repositories.phpmyadmin composer https://www.phpmyadmin.net/packages.json
-    composer create-project phpmyadmin/phpmyadmin --no-dev
-    cp /home/vagrant/homestead-boxes/config.ini.php /home/vagrant/phpmyadmin/config.ini.php
-    ln -s /home/vagrant/phpmyadmin/ /home/vagrant/homestead-boxes/phpmyadmin
+    # composer -g config repositories.phpmyadmin composer https://www.phpmyadmin.net/packages.json
+    # composer create-project phpmyadmin/phpmyadmin --no-dev
+    # cp /home/vagrant/homestead-boxes/config.ini.php /home/vagrant/phpmyadmin/config.ini.php
+    # ln -s /home/vagrant/phpmyadmin/ /home/vagrant/homestead-boxes/phpmyadmin
 
     touch $LOCK
 

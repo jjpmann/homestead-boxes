@@ -1,13 +1,13 @@
 ---
-####   PHP 5.6 BOX
-ip: "192.168.10.11"
-domain: php5.local
+####   PHP 7.1 BOX
+ip: "192.168.10.12"
+domain: php71.app
 memory: 2048
 cpus: 1
-hostname: homestead-boxes-php5.6
-name: homestead-boxes-php5.6
+hostname: homestead-boxes-php71
+name: homestead-boxes-php71
 provider: virtualbox
-version: 0.3.3
+# version: ">= 0.4.2"
 
 authorize: ~/.ssh/id_rsa.pub
 
@@ -15,7 +15,7 @@ keys:
     - ~/.ssh/id_rsa
 
 folders:
-      # Site1
+      # Site3
     - map: "~/Sites/site"
       to: "/home/vagrant/site"
 
@@ -24,17 +24,17 @@ folders:
       to: "/home/vagrant/homestead-boxes"
 
 sites:
-      # Site1
-    - map: site1.local
+      # Site3
+    - map: site3.local
       to: "/home/vagrant/site/public"
 
       # Default
-    - map: homestead.local
+    - map: homestead71.local
       to: "/home/vagrant/homestead-boxes"
 
 databases:
     - homestead
-    - site1
+    - site3
 
 networks:
     - type: public_network
@@ -52,4 +52,3 @@ networks:
 #     - send: 7777
 #       to: 777
 #       protocol: udp
-

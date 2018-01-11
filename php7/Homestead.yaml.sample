@@ -1,7 +1,7 @@
 ---
 ####   PHP 7 BOX
 ip: "192.168.10.10"
-domain: homestead7.app
+domain: php7.local
 memory: 2048
 cpus: 1
 hostname: homestead-boxes-php7
@@ -18,16 +18,18 @@ folders:
       # Site2
     - map: "~/Sites/site"
       to: "/home/vagrant/site"
+      
       # Default
     - map: "~/homestead-boxes"
       to: "/home/vagrant/homestead-boxes"
 
 sites:
       # Site2
-    - map: site2.app
+    - map: site2.local
       to: "/home/vagrant/site/public"
+
       # Default
-    - map: homestead7.app
+    - map: homestead7.local
       to: "/home/vagrant/homestead-boxes"
 
 databases:

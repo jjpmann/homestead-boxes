@@ -18,14 +18,15 @@ function lanIP($v){
 }
 
 $boxes = [
-    'php7 box' => 'php7',
-    'php5.6 box' => 'php5.6',
-    'php7.1 box' => 'php7.1'
+    'php5.6 box'    => 'php5.6',
+    'php7 box'      => 'php7',
+    'php7.1 box'    => 'php7.1'
+    'php7.2 box'    => 'php7.2'
 ];
 
 $h = new homesteadYamlParser($boxes);
 
-$hosts = $h->getHosts('LMO HOMESTEAD BOXES');
+$hosts = $h->getHosts('HOMESTEAD BOXES');
 
 $sites = $h->getSites(); //getSites($boxes);
 

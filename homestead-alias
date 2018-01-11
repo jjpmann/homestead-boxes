@@ -44,9 +44,9 @@ function __homestead_func() {
 
     if [[ $2 == 'up' ]]; then
         if [[ $1 == 'php7' ]]; then
-            open 'http://homestead7.app/'
+            open 'http://homestead7.local/'
         else
-            open 'http://homestead.app/'
+            open 'http://homestead.local/'
         fi
 
         __hosts
@@ -70,13 +70,6 @@ function __update_homestead() {
 
     if git pull --rebase --stat origin master
     then
-    #   printf '%s' "$GREEN"
-    #   printf '%s\n' '    __             '
-    #   printf '%s\n' '   / /_     ______ '
-    #   printf '%s\n' '  / __ \   / __  / '
-    #   printf '%s\n' ' / / / /  / /_/ /  '
-    #   printf '%s\n' '/_/ /_/  /_ _ _/   '
-    #   printf '%s\n' '                   '
       printf "${BLUE}%s\n" "Hooray! homestead-boxes have been updated and/or is at the current version."
     #   printf "${BLUE}${BOLD}%s${NORMAL}\n" "To keep up on the latest news and updates, follow us on twitter: https://twitter.com/ohmyzsh"
     #   printf "${BLUE}${BOLD}%s${NORMAL}\n" "Get your Oh My Zsh swag at:  http://shop.planetargon.com/"
