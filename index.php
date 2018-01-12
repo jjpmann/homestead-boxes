@@ -20,7 +20,7 @@ function lanIP($v){
 $boxes = [
     'php5.6 box'    => 'php5.6',
     'php7 box'      => 'php7',
-    'php7.1 box'    => 'php7.1'
+    'php7.1 box'    => 'php7.1',
     'php7.2 box'    => 'php7.2'
 ];
 
@@ -77,7 +77,7 @@ $sites = $h->getSites(); //getSites($boxes);
         
         <h2>Site Links</h2>
         
-        <?php foreach ($boxes as $box => $f): ?>
+        <?php foreach ($boxes as $box => $f): if (!isset($sites[$box])) { continue; } ?>
             <table class="table table-striped">
             <thead>
                 <tr><th colspan="3"><?=$box?></th></tr>
